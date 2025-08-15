@@ -1,0 +1,227 @@
+---
+// src/components/portfolio/ToolboxBanner.astro
+// This component contains the hand-crafted, pixel-art style SVG artwork.
+
+interface Props {
+  toolId: "nextjs" | "typescript" | "bun" | "astro" | "tailwind" | "dinesh";
+}
+
+const { toolId } = Astro.props;
+---
+
+<div class="banner-wrapper">
+  <!-- NEXT.JS BANNER -->
+  {
+    toolId === "nextjs" && (
+      <svg viewBox="0 0 270 50" class="banner-svg">
+        <g>
+          <rect x="0" y="0" width="10" height="50" />
+          <rect x="10" y="10" width="10" height="10" />
+          <rect x="20" y="20" width="10" height="10" />
+          <rect x="30" y="0" width="10" height="50" />
+          <rect x="50" y="0" width="10" height="50" />
+          <rect x="60" y="0" width="20" height="10" />
+          <rect x="60" y="20" width="10" height="10" />
+          <rect x="60" y="40" width="20" height="10" />
+          <rect x="90" y="0" width="10" height="20" />
+          <rect x="110" y="0" width="10" height="20" />
+          <rect x="100" y="20" width="10" height="10" />
+          <rect x="90" y="30" width="10" height="20" />
+          <rect x="110" y="30" width="10" height="20" />
+          <rect x="130" y="0" width="30" height="10" />
+          <rect x="140" y="10" width="10" height="40" />
+          <rect x="170" y="40" width="10" height="10" />
+          <rect x="210" y="0" width="10" height="40" />
+          <rect x="190" y="40" width="30" height="10" />
+          <rect x="190" y="30" width="10" height="10" />
+          <rect x="230" y="0" width="30" height="10" />
+          <rect x="230" y="10" width="10" height="10" />
+          <rect x="230" y="20" width="30" height="10" />
+          <rect x="250" y="30" width="10" height="10" />
+          <rect x="230" y="40" width="30" height="10" />
+        </g>
+      </svg>
+    )
+  }
+
+  <!-- TYPESCRIPT BANNER -->
+  {
+    toolId === "typescript" && (
+      <svg viewBox="0 0 370 50" class="banner-svg">
+        <g>
+          <rect x="0" y="0" width="30" height="10" />
+          <rect x="10" y="10" width="10" height="40" />
+          <rect x="40" y="0" width="10" height="20" />
+          <rect x="60" y="0" width="10" height="20" />
+          <rect x="50" y="20" width="10" height="30" />
+          <rect x="80" y="0" width="10" height="50" />
+          <rect x="90" y="0" width="20" height="10" />
+          <rect x="100" y="10" width="10" height="10" />
+          <rect x="90" y="20" width="10" height="10" />
+          <rect x="120" y="0" width="10" height="50" />
+          <rect x="130" y="0" width="20" height="10" />
+          <rect x="130" y="20" width="10" height="10" />
+          <rect x="130" y="40" width="20" height="10" />
+          <rect x="160" y="0" width="30" height="10" />
+          <rect x="160" y="10" width="10" height="10" />
+          <rect x="160" y="20" width="30" height="10" />
+          <rect x="180" y="30" width="10" height="10" />
+          <rect x="160" y="40" width="30" height="10" />
+          <rect x="200" y="0" width="30" height="10" />
+          <rect x="200" y="10" width="10" height="30" />
+          <rect x="200" y="40" width="30" height="10" />
+          <rect x="240" y="0" width="10" height="50" />
+          <rect x="250" y="0" width="20" height="10" />
+          <rect x="260" y="10" width="10" height="10" />
+          <rect x="250" y="20" width="10" height="10" />
+          <rect x="260" y="30" width="10" height="20" />
+          <rect x="280" y="0" width="10" height="50" />
+          <rect x="300" y="0" width="10" height="50" />
+          <rect x="310" y="0" width="20" height="10" />
+          <rect x="320" y="10" width="10" height="10" />
+          <rect x="310" y="20" width="10" height="10" />
+          <rect x="340" y="0" width="30" height="10" />
+          <rect x="350" y="10" width="10" height="40" />
+        </g>
+      </svg>
+    )
+  }
+
+  <!-- BUN BANNER -->
+  {
+    toolId === "bun" && (
+      <svg viewBox="0 0 120 50" class="banner-svg">
+        <g>
+          <rect x="0" y="0" width="10" height="50" />
+          <rect x="10" y="0" width="20" height="10" />
+          <rect x="20" y="10" width="10" height="10" />
+          <rect x="10" y="20" width="20" height="10" />
+          <rect x="20" y="30" width="10" height="10" />
+          <rect x="10" y="40" width="20" height="10" />
+          <rect x="40" y="0" width="10" height="40" />
+          <rect x="50" y="40" width="10" height="10" />
+          <rect x="60" y="0" width="10" height="40" />
+          <rect x="80" y="0" width="10" height="50" />
+          <rect x="90" y="10" width="10" height="10" />
+          <rect x="100" y="20" width="10" height="10" />
+          <rect x="110" y="0" width="10" height="50" />
+        </g>
+      </svg>
+    )
+  }
+
+  <!-- ASTRO BANNER -->
+  {
+    toolId === "astro" && (
+      <svg viewBox="0 0 190 50" class="banner-svg">
+        <g>
+          <rect x="10" y="0" width="10" height="10" />
+          <rect x="0" y="10" width="10" height="40" />
+          <rect x="20" y="10" width="10" height="40" />
+          <rect x="0" y="20" width="30" height="10" />
+          <rect x="40" y="0" width="30" height="10" />
+          <rect x="40" y="10" width="10" height="10" />
+          <rect x="40" y="20" width="30" height="10" />
+          <rect x="60" y="30" width="10" height="10" />
+          <rect x="40" y="40" width="30" height="10" />
+          <rect x="80" y="0" width="30" height="10" />
+          <rect x="90" y="10" width="10" height="40" />
+          <rect x="120" y="0" width="10" height="50" />
+          <rect x="130" y="0" width="20" height="10" />
+          <rect x="140" y="10" width="10" height="10" />
+          <rect x="130" y="20" width="10" height="10" />
+          <rect x="140" y="30" width="10" height="20" />
+          <rect x="160" y="0" width="30" height="10" />
+          <rect x="160" y="10" width="10" height="30" />
+          <rect x="180" y="10" width="10" height="30" />
+          <rect x="160" y="40" width="30" height="10" />
+        </g>
+      </svg>
+    )
+  }
+
+  <!-- TAILWIND BANNER -->
+  {
+    toolId === "tailwind" && (
+      <svg viewBox="0 0 310 50" class="banner-svg">
+        <g>
+          <rect x="0" y="0" width="30" height="10" />
+          <rect x="10" y="10" width="10" height="40" />
+          <rect x="50" y="0" width="10" height="10" />
+          <rect x="40" y="10" width="10" height="40" />
+          <rect x="60" y="10" width="10" height="40" />
+          <rect x="40" y="20" width="30" height="10" />
+          <rect x="80" y="0" width="10" height="50" />
+          <rect x="100" y="0" width="10" height="50" />
+          <rect x="110" y="40" width="20" height="10" />
+          <rect x="140" y="0" width="10" height="40" />
+          <rect x="150" y="40" width="10" height="10" />
+          <rect x="160" y="20" width="10" height="20" />
+          <rect x="170" y="40" width="10" height="10" />
+          <rect x="180" y="0" width="10" height="40" />
+          <rect x="200" y="0" width="10" height="50" />
+          <rect x="220" y="0" width="10" height="50" />
+          <rect x="230" y="10" width="10" height="10" />
+          <rect x="240" y="20" width="10" height="10" />
+          <rect x="250" y="0" width="10" height="50" />
+          <rect x="270" y="0" width="10" height="50" />
+          <rect x="280" y="0" width="20" height="10" />
+          <rect x="300" y="10" width="10" height="30" />
+          <rect x="280" y="40" width="20" height="10" />
+        </g>
+      </svg>
+    )
+  }
+
+  <!-- DINESH BANNER -->
+  {
+    toolId === "dinesh" && (
+    <svg viewBox="0 0 270 50" class="banner-svg">
+        <g>
+          {/* N */}
+          <rect x="0" y="0" width="10" height="50" />
+          <rect x="10" y="10" width="10" height="10" />
+          <rect x="20" y="20" width="10" height="10" />
+          <rect x="30" y="0" width="10" height="50" />
+          {/* E (Redesigned) */}
+          <rect x="50" y="0" width="10" height="50" />
+          <rect x="60" y="0" width="20" height="10" />
+          <rect x="60" y="20" width="10" height="10" />
+          <rect x="60" y="40" width="20" height="10" />
+          {/* X */}
+          <rect x="90" y="0" width="10" height="20" />
+          <rect x="110" y="0" width="10" height="20" />
+          <rect x="100" y="20" width="10" height="10" />
+          <rect x="90" y="30" width="10" height="20" />
+          <rect x="110" y="30" width="10" height="20" />
+          {/* T */}
+          <rect x="130" y="0" width="30" height="10" />
+          <rect x="140" y="10" width="10" height="40" />
+          {/* . */}
+          <rect x="170" y="40" width="10" height="10" />
+          {/* J (Redesigned) */}
+          <rect x="210" y="0" width="10" height="50" />
+          <rect x="190" y="40" width="20" height="10" />
+          <rect x="190" y="30" width="10" height="10" />
+          {/* S (Redesigned) */}
+          <rect x="230" y="0" width="30" height="10" />
+          <rect x="230" y="10" width="10" height="10" />
+          <rect x="230" y="20" width="30" height="10" />
+          <rect x="250" y="30" width="10" height="10" />
+          <rect x="230" y="40" width="30" height="10" />
+        </g>
+      </svg>
+    )
+  }
+</div>
+
+<style>
+  .banner-wrapper {
+    height: 2.5rem; /* 40px */
+  }
+  .banner-svg {
+    height: 100%;
+    width: auto;
+    fill: white;
+  }
+</style>

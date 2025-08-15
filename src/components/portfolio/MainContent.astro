@@ -1,0 +1,445 @@
+---
+// components/portfolio/MainContent.astro
+import {
+  NextjsIcon,
+  TypeScriptIcon,
+  TailwindIcon,
+  AstroIcon,
+  BunIcon,
+} from "../icons/icons.tsx";
+import NameBanner from "./NameBanner.astro";
+import ToolboxBanner from "./ToolboxBanner.astro";
+
+// --- DATA ---
+
+const TOOLBOX_ITEMS = [
+  {
+    id: "nextjs",
+    name: "Next.js",
+    component: NextjsIcon,
+    category: "Full-Stack Framework",
+    description:
+      "My go-to for building high-performance, production-ready web applications. The combination of Server Components, static generation, and a first-class developer experience makes it incredibly powerful.",
+    link: "https://nextjs.org",
+  },
+  {
+    id: "typescript",
+    name: "TypeScript",
+    component: TypeScriptIcon,
+    category: "Language Superset",
+    description:
+      "Essential for any large-scale project. The static typing saves countless hours of debugging, improves code maintainability, and enables robust tooling and autocompletion that I can't live without.",
+    link: "https://www.typescriptlang.org",
+  },
+  {
+    id: "bun",
+    name: "Bun",
+    component: BunIcon,
+    category: "JavaScript Runtime & Toolkit",
+    description:
+      "An incredibly fast all-in-one toolkit that has streamlined my workflow. Its speed as a runtime, bundler, and package manager makes development faster and more efficient.",
+    link: "https://bun.sh",
+  },
+  {
+    id: "astro",
+    name: "Astro",
+    component: AstroIcon,
+    category: "Web Framework",
+    description:
+      "Unbeatable for content-focused websites. Astro's island architecture delivers incredible performance by default, shipping zero JavaScript unless explicitly needed. It's a joy to build with.",
+    link: "https://astro.build",
+  },
+  {
+    id: "tailwind",
+    name: "Tailwind",
+    component: TailwindIcon,
+    category: "CSS Framework",
+    description:
+      "A utility-first approach that has completely changed how I write CSS. It allows for rapid prototyping and building complex, custom designs without ever leaving my HTML. It's maintainable and scalable.",
+    link: "https://tailwindcss.com",
+  },
+];
+
+const PROJECTS = [
+  {
+    name: "Nexseed",
+    description: "Next.js app generator with auth & database integration.",
+    link: "https://nexseed-docs.vercel.app/",
+    year: "2024",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Auth.js"],
+  },
+  {
+    name: "Imaverter",
+    description:
+      "An intuitive image processing tool for conversion & compression.",
+    link: "https://imaverter.vercel.app/",
+    year: "2024",
+    tech: ["Next.js", "Typescript", "Tailwind CSS", "Bun"],
+  },
+];
+---
+
+<main
+  class="relative min-h-screen bg-background text-foreground font-sans px-4"
+>
+  <!-- Grid Background -->
+  <div
+    class="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(#1F2937_1px,transparent_1px)] [background-size:32px_32px]"
+  >
+  </div>
+
+  <div class="max-w-3xl mx-auto py-24 md:py-32">
+    <!-- Hero Section -->
+    <section class="mb-16 animate-fade-in-up">
+      <div
+        class="inline-flex items-center gap-2.5 border border-border rounded-full px-3 py-1 mb-8 text-sm text-muted-foreground"
+      >
+        <div
+          class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+          style="animation-duration: 2s;"
+        >
+        </div>
+        Available for new opportunities
+      </div>
+      <p class="text-lg text-muted-foreground mb-2 pb-3">Hey, I'm</p>
+      <div class="pb-3">
+        <NameBanner />
+      </div>
+
+      <p class="max-w-2xl text-lg text-muted-foreground mb-8">
+        Full Stack Developer crafting minimal, functional interfaces with clean
+        code. Based in Punjab, India.
+      </p>
+
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-4">
+          <a
+            href="https://github.com/kdinesh24"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile"
+            class="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="https://linkedin.com/in/kdinesh24"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile"
+            class="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-6 h-6"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              ></path><rect x="2" y="9" width="4" height="12"></rect><circle
+                cx="4"
+                cy="4"
+                r="2"></circle>
+            </svg>
+          </a>
+        </div>
+        <a
+          href="/resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span>View Resume</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform"
+          >
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="mb-24 animate-fade-in-up [animation-delay:200ms]">
+      <h2 class="text-xl font-semibold tracking-tight mb-6">About</h2>
+      <div class="space-y-6 text-muted-foreground text-base leading-relaxed">
+        <p>
+          I specialize in building exceptional digital products that live at the
+          intersection of design and technology. With a passion for modern web
+          standards and a keen eye for detail, I focus on creating seamless user
+          experiences through clean, efficient, and maintainable code.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Developer Toolbox Section -->
+    <section class="mb-24 animate-fade-in-up [animation-delay:300ms]">
+      <h2 class="text-xl font-semibold tracking-tight mb-6">
+        The Developer's Toolbox
+      </h2>
+      <div class="flex flex-col md:flex-row gap-6">
+        <!-- Tool Selector -->
+        <div
+          class="grid grid-cols-5 md:grid-cols-1 gap-4"
+          id="toolbox-selector"
+        >
+          {
+            TOOLBOX_ITEMS.map((tool, index) => {
+              const IconComponent = tool.component;
+              return (
+                <button
+                  data-tool={tool.id}
+                  class={`toolbox-item group flex items-center justify-center p-4 rounded-lg transition-all duration-300 ${
+                    index === 0 ? "toolbox-active" : ""
+                  }`}
+                >
+                  <IconComponent class="h-8 w-8" />
+                </button>
+              );
+            })
+          }
+        </div>
+        <!-- Tool Details Display -->
+        <div
+          class="flex-1 flex flex-col bg-muted/30 p-6 rounded-lg border border-border"
+          id="toolbox-display"
+        >
+          <div class="flex-grow">
+            <!-- Dynamic Banner Container -->
+            <div id="banner-container">
+              {
+                TOOLBOX_ITEMS.map((tool, index) => (
+                  <div
+                    data-tool-banner={tool.id}
+                    class={index !== 0 ? "hidden" : ""}
+                  >
+                    <ToolboxBanner toolId={tool.id} />
+                  </div>
+                ))
+              }
+            </div>
+            <p
+              id="tool-category"
+              class="text-base text-muted-foreground mt-6 mb-6"
+            >
+              Full-Stack Framework
+            </p>
+            <p id="tool-description" class="text-base leading-relaxed">
+              My go-to for building high-performance, production-ready web
+              applications. The combination of Server Components, static
+              generation, and a first-class developer experience makes it
+              incredibly powerful.
+            </p>
+          </div>
+          <a
+            id="tool-link"
+            href="https://nextjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group mt-auto pt-4 inline-flex items-center text-sm font-medium text-foreground hover:text-muted-foreground"
+          >
+            <span>Visit website</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform"
+            >
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section (Work) -->
+    <section class="mb-24 animate-fade-in-up [animation-delay:400ms]" id="projects-section">
+      <h2 class="text-xl font-semibold tracking-tight mb-6">Projects</h2>
+      <div class="relative border-l border-border -ml-4">
+        <ul class="flex flex-col">
+          {
+            PROJECTS.map((project, index) => (
+              <li class="relative">
+                <!-- Animated Line (only show for non-last items) -->
+                {index < PROJECTS.length - 1 && (
+                  <div 
+                    class={`absolute left-0 w-0.5 bg-white/80 project-line-grow-${index}`}
+                    style="transform: translateX(-50%);"
+                  />
+                )}
+                
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block pl-12 py-6 cursor-pointer"
+                >
+                  <div
+                    class={`absolute left-0 top-8 w-2.5 h-2.5 bg-muted-foreground rounded-full border-2 border-background project-dot-glow-${index}`}
+                    style="transform: translateX(-50%)"
+                  />
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1.5">
+                    <h3 class="font-medium text-foreground">{project.name}</h3>
+                    <p class="text-sm text-muted-foreground font-mono">
+                      {project.year}
+                    </p>
+                  </div>
+                  <p class="text-muted-foreground text-sm leading-relaxed max-w-xl">
+                    {project.description}
+                  </p>
+                  <div class="mt-4 flex flex-wrap items-center gap-2">
+                    {project.tech.map((tech) => (
+                      <span class="text-xs font-mono text-muted-foreground bg-muted/60 border border-border rounded-md px-2 py-1">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div class="mt-4 flex items-center text-sm font-medium text-muted-foreground">
+                    <span>View Project</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4 ml-1.5"
+                    >
+                      <path d="M7 7h10v10" />
+                      <path d="M7 17 17 7" />
+                    </svg>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer / Connect -->
+    <footer
+      class="pt-12 border-t border-border animate-fade-in-up [animation-delay:600ms]"
+    >
+      <p class="text-sm text-muted-foreground text-center">
+        © {new Date().getFullYear()} Dinesh. Designed with care in Punjab,
+        India.
+      </p>
+    </footer>
+  </div>
+</main>
+
+<style>
+  /* Toolbox Styles */
+  .toolbox-item {
+    background-color: hsl(var(--muted) / 0.2);
+    border: 1px solid hsl(var(--border));
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.02),
+      0 1px 2px rgba(0, 0, 0, 0.1);
+    opacity: 0.7;
+  }
+
+  .toolbox-item.toolbox-active {
+    background-color: hsl(var(--muted) / 0.5);
+    border-color: hsl(var(--foreground) / 0.3);
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, 0.05),
+      0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .toolbox-item:not(.toolbox-active):hover {
+    background-color: hsl(var(--muted) / 0.4);
+    border-color: hsl(var(--foreground) / 0.2);
+    opacity: 0.9;
+  }
+</style>
+
+<script define:vars={{ TOOLBOX_ITEMS, PROJECTS }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Toolbox functionality
+    const selector = document.getElementById("toolbox-selector");
+    const bannerContainer = document.getElementById("banner-container");
+    const toolCategory = document.getElementById("tool-category");
+    const toolDescription = document.getElementById("tool-description");
+    const toolLink = document.getElementById("tool-link");
+
+    if (selector && bannerContainer) {
+      const banners = bannerContainer.querySelectorAll("[data-tool-banner]");
+
+      selector.addEventListener("click", (e) => {
+        const button = e.target.closest("button");
+        if (!button) return;
+
+        const toolId = button.dataset.tool;
+        const toolData = TOOLBOX_ITEMS.find((t) => t.id === toolId);
+
+        if (!toolData) return;
+
+        // Update text content
+        toolCategory.textContent = toolData.category;
+        toolDescription.textContent = toolData.description;
+        toolLink.href = toolData.link;
+
+        // Update active banner
+        banners.forEach((banner) => {
+          if (banner.dataset.toolBanner === toolId) {
+            banner.classList.remove("hidden");
+          } else {
+            banner.classList.add("hidden");
+          }
+        });
+
+        // Update active button state
+        selector.querySelectorAll("button").forEach((item) => {
+          item.classList.remove("toolbox-active");
+        });
+        button.classList.add("toolbox-active");
+      });
+    }
+  });
+</script>
