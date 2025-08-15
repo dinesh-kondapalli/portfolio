@@ -1,5 +1,6 @@
 ---
 // components/portfolio/MainContent.astro
+import { Image } from "astro:assets";
 import {
   NextjsIcon,
   TypeScriptIcon,
@@ -9,6 +10,10 @@ import {
 } from "../icons/icons.tsx";
 import NameBanner from "./NameBanner.astro";
 import ToolboxBanner from "./ToolboxBanner.astro";
+
+// Import project images (fixed path)
+import project1Image from "../../assets/images/project-1.png";
+import project2Image from "../../assets/images/project-2.png";
 
 // --- DATA ---
 
@@ -65,16 +70,18 @@ const PROJECTS = [
     name: "Nexseed",
     description: "Next.js app generator with auth & database integration.",
     link: "https://nexseed-docs.vercel.app/",
-    year: "2024",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Auth.js"],
+    image: project1Image,
+    github: "https://github.com/kdinesh24/Nexseed",
   },
   {
     name: "Imaverter",
     description:
       "An intuitive image processing tool for conversion & compression.",
     link: "https://imaverter.vercel.app/",
-    year: "2024",
     tech: ["Next.js", "Typescript", "Tailwind CSS", "Bun"],
+    image: project2Image,
+    github: "https://github.com/armancurr/imaverter",
   },
 ];
 ---
@@ -294,7 +301,7 @@ const PROJECTS = [
     <!-- Projects Section (Work) -->
     <section class="mb-24 animate-fade-in-up [animation-delay:400ms]" id="projects-section">
       <h2 class="text-xl font-semibold tracking-tight mb-6">Projects</h2>
-      <div class="relative border-l border-border -ml-4">
+      <div class="border-l border-border -ml-4">
         <ul class="flex flex-col">
           {
             PROJECTS.map((project, index) => (
@@ -307,51 +314,79 @@ const PROJECTS = [
                   />
                 )}
                 
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block pl-12 py-6 cursor-pointer"
-                >
+                <div class="pl-12 py-6">
                   <div
-                    class={`absolute left-0 top-8 w-2.5 h-2.5 bg-muted-foreground rounded-full border-2 border-background project-dot-glow-${index}`}
+                    class={`absolute left-0 top-6 w-2.5 h-2.5 bg-muted-foreground rounded-full border-2 border-background project-dot-glow-${index}`}
                     style="transform: translateX(-50%)"
                   />
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-1.5">
-                    <h3 class="font-medium text-foreground">{project.name}</h3>
-                    <p class="text-sm text-muted-foreground font-mono">
-                      {project.year}
-                    </p>
+                  
+                  <!-- Project Content with Image on Right -->
+                  <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Left: Project Details -->
+                    <div class="flex-1">
+                      <div class="mb-1.5">
+                        <h3 class="font-medium text-foreground">{project.name}</h3>
+                      </div>
+                      <p class="text-muted-foreground text-sm leading-relaxed max-w-xl mb-4">
+                        {project.description}
+                      </p>
+                      <div class="flex flex-wrap items-center gap-2 mb-4">
+                        {project.tech.map((tech) => (
+                          <span class="text-xs font-mono text-muted-foreground bg-muted/60 border border-border rounded-md px-2 py-1">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      <div class="flex items-center text-sm font-medium text-muted-foreground">
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`View ${project.name} on GitHub`}
+                          class="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                          </svg>
+                          <span>GitHub</span>
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <!-- Right: Project Image -->
+                    <div class="w-full lg:w-64 xl:w-72">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-image-container group block overflow-hidden rounded-lg border border-border bg-muted/10 transition-all duration-300 relative"
+                        aria-label={`Visit ${project.name} live site`}
+                      >
+                        <div class="rotating-border"></div>
+                        <div class="relative aspect-video overflow-hidden">
+                          <Image
+                            src={project.image}
+                            alt={`Screenshot of ${project.name} project`}
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                            width={400}
+                            height={225}
+                          />
+                        </div>
+                      </a>
+                    </div>
                   </div>
-                  <p class="text-muted-foreground text-sm leading-relaxed max-w-xl">
-                    {project.description}
-                  </p>
-                  <div class="mt-4 flex flex-wrap items-center gap-2">
-                    {project.tech.map((tech) => (
-                      <span class="text-xs font-mono text-muted-foreground bg-muted/60 border border-border rounded-md px-2 py-1">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div class="mt-4 flex items-center text-sm font-medium text-muted-foreground">
-                    <span>View Project</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      class="w-4 h-4 ml-1.5"
-                    >
-                      <path d="M7 7h10v10" />
-                      <path d="M7 17 17 7" />
-                    </svg>
-                  </div>
-                </a>
+                </div>
               </li>
             ))
           }

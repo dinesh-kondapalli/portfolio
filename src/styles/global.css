@@ -156,11 +156,11 @@
     background-color: hsl(var(--muted-foreground));
     box-shadow: none;
   }
-  30% {
+  25% {
     background-color: white;
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(255, 255, 255, 0.3);
   }
-  70% {
+  75% {
     background-color: white;
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(255, 255, 255, 0.3);
   }
@@ -173,24 +173,29 @@
 @keyframes projectLineGrowShrink {
   0% {
     height: 0;
-    top: 42px;
+    top: 24px;
   }
   40% {
-    height: 168px;
-    top: 42px;
+    height: 216px; /* Increased significantly to reach second dot properly */
+    top: 24px;
   }
   50% {
-    height: 168px;
-    top: 42px;
+    height: 216px;
+    top: 24px;
   }
   65% {
     height: 0;
-    top: 210px; /* Moves to second dot position */
+    top: 240px; /* Adjusted end position */
   }
   100% {
     height: 0;
-    top: 210px;
+    top: 240px;
   }
+}
+
+@keyframes rotateBorder {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @keyframes scroll-smooth {
@@ -209,21 +214,38 @@
 }
 
 .project-dot-glow-0 {
-  animation: projectDotGlow 10s infinite;
+  animation: projectDotGlow 8s infinite;
   animation-delay: 0s;
 }
 
 .project-dot-glow-1 {
-  animation: projectDotGlow 10s infinite;
-  animation-delay: 5s;
+  animation: projectDotGlow 8s infinite;
+  animation-delay: 4s;
 }
 
 .project-line-grow-0 {
-  animation: projectLineGrowShrink 10s ease-in-out infinite;
-  animation-delay: 2s;
+  animation: projectLineGrowShrink 8s ease-in-out infinite;
+  animation-delay: 1.5s;
   animation-fill-mode: both;
   height: 0;
-  top: 42px;
+  top: 24px;
+}
+
+.rotating-border {
+  position: absolute;
+  inset: -2px;
+  border: 2px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.7);
+  border-right-color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  animation: rotateBorder 2s linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-image-container:hover .rotating-border {
+  opacity: 1;
 }
 
 /* Custom selection */
