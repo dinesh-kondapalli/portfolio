@@ -258,3 +258,10 @@
 html {
   scroll-padding-top: 80px;
 }
+
+
+::selection {
+    background: #99bde1; /* Tailwind's pink-500 */
+    color: white;
+}
+
