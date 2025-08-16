@@ -12,7 +12,6 @@ import { Github, Linkedin, Twitter, Quote } from "lucide-react";
 import NameBanner from "./NameBanner.astro";
 import ToolboxBanner from "./ToolboxBanner.astro";
 
-// Import project images (fixed path)
 import project1Image from "../../assets/images/project-1.png";
 import project2Image from "../../assets/images/project-2.png";
 
@@ -86,14 +85,11 @@ const PROJECTS = [
 ];
 ---
 
-<main
-  class="relative min-h-screen bg-background text-foreground font-sans px-4"
->
+<main class="relative min-h-screen bg-background text-foreground font-sans px-4">
   <!-- Grid Background -->
   <div
     class="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(#1F2937_1px,transparent_1px)] [background-size:32px_32px]"
-  >
-  </div>
+  ></div>
 
   <div class="max-w-3xl mx-auto py-24 md:py-32">
     <!-- Hero Section -->
@@ -104,8 +100,7 @@ const PROJECTS = [
         <div
           class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
           style="animation-duration: 2s;"
-        >
-        </div>
+        ></div>
         Available for new opportunities
       </div>
 
@@ -194,10 +189,7 @@ const PROJECTS = [
       </h2>
       <div class="flex flex-col md:flex-row gap-6">
         <!-- Tool Selector -->
-        <div
-          class="grid grid-cols-5 md:grid-cols-1 gap-4"
-          id="toolbox-selector"
-        >
+        <div class="grid grid-cols-5 md:grid-cols-1 gap-4" id="toolbox-selector">
           {
             TOOLBOX_ITEMS.map((tool, index) => {
               const IconComponent = tool.component;
@@ -275,31 +267,33 @@ const PROJECTS = [
       </div>
     </section>
 
-    <!-- Projects Section (Work) -->
+    <!-- Projects Section -->
     <section class="mb-24 animate-fade-in-up [animation-delay:400ms]" id="projects-section">
       <h2 class="text-xl font-semibold tracking-tight mb-6">Projects</h2>
-      <div class="border-l border-border -ml-4">
+      <div class="relative -ml-4 md:-ml-4 -ml-2">
+        <!-- Main border line -->
+        <div class="absolute left-0 top-4 w-0.5 h-full bg-border timeline-line"></div>
+        
         <ul class="flex flex-col">
           {
             PROJECTS.map((project, index) => (
               <li class="relative">
-                <!-- Animated Line (only show for non-last items) -->
+                <!-- Animated Line -->
                 {index < PROJECTS.length - 1 && (
                   <div 
-                    class={`absolute left-0 w-0.5 bg-white/80 project-line-grow-${index}`}
-                    style="transform: translateX(-50%);"
+                    class={`absolute left-0 w-0.5 bg-white/80 project-line-grow-${index} timeline-animated-line`}
+                    style="top: 16px; height: calc(100% - 16px);"
                   />
                 )}
                 
-                <div class="pl-12 py-6">
+                <div class="pl-12 py-4">
                   <div
-                    class={`absolute left-0 top-6 w-2.5 h-2.5 bg-muted-foreground rounded-full border-2 border-background project-dot-glow-${index}`}
-                    style="transform: translateX(-50%)"
+                    class={`absolute left-0 top-4 w-2.5 h-2.5 bg-muted-foreground rounded-full border-2 border-background project-dot-glow-${index} timeline-dot`}
                   />
                   
-                  <!-- Project Content with Image on Right -->
+                  <!-- Project Content -->
                   <div class="flex flex-col lg:flex-row gap-6">
-                    <!-- Left: Project Details -->
+                    <!-- Project Details -->
                     <div class="flex-1">
                       <div class="mb-1.5">
                         <h3 class="font-medium text-foreground">{project.name}</h3>
@@ -328,7 +322,7 @@ const PROJECTS = [
                       </div>
                     </div>
                     
-                    <!-- Right: Project Image -->
+                    <!-- Project Image -->
                     <div class="w-full lg:w-64 xl:w-72">
                       <a
                         href={project.link}
@@ -338,6 +332,7 @@ const PROJECTS = [
                         aria-label={`Visit ${project.name} live site`}
                       >
                         <div class="rotating-border"></div>
+                        <div class="top-shine"></div>
                         <div class="relative aspect-video overflow-hidden">
                           <Image
                             src={project.image}
@@ -363,7 +358,6 @@ const PROJECTS = [
     <section class="mb-24 animate-fade-in-up [animation-delay:450ms]">
       <h2 class="text-xl font-semibold tracking-tight mb-6">Developer Philosophy</h2>
       <div class="relative">
-        <!-- Quote Display -->
         <div class="philosophy-container relative border border-border rounded-lg p-8 bg-muted/5 hover:bg-muted/10 transition-all duration-500 min-h-[140px] flex items-center justify-center">
           <div class="absolute top-4 left-4 opacity-20">
             <Quote class="w-8 h-8 text-muted-foreground" />
@@ -380,97 +374,17 @@ const PROJECTS = [
       </div>
     </section>
 
-    <!-- Footer / Connect -->
-    <footer
-      class="pt-12 border-t border-border animate-fade-in-up [animation-delay:600ms]"
-    >
+    <!-- Footer -->
+    <footer class="pt-12 border-t border-border animate-fade-in-up [animation-delay:600ms]">
       <p class="text-sm text-muted-foreground text-center">
-        © {new Date().getFullYear()} Dinesh. Designed with care in Punjab,
-        India.
+        © {new Date().getFullYear()} Dinesh. Designed with care in Punjab, India.
       </p>
     </footer>
   </div>
 </main>
 
-<style>
-  /* Text Selection Styling */
-  ::selection {
-    background: #ec4899; /* Pink selection */
-    color: white;
-  }
-
-  ::-moz-selection {
-    background: #ec4899;
-    color: white;
-  }
-
-  /* Toolbox Styles */
-  .toolbox-item {
-    background-color: hsl(var(--muted) / 0.2);
-    border: 1px solid hsl(var(--border));
-    box-shadow:
-      inset 0 1px 1px rgba(255, 255, 255, 0.02),
-      0 1px 2px rgba(0, 0, 0, 0.1);
-    opacity: 0.7;
-  }
-
-  .toolbox-item.toolbox-active {
-    background-color: hsl(var(--muted) / 0.5);
-    border-color: hsl(var(--foreground) / 0.3);
-    opacity: 1;
-    transform: scale(1.05);
-    box-shadow:
-      inset 0 1px 1px rgba(255, 255, 255, 0.05),
-      0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
-  .toolbox-item:not(.toolbox-active):hover {
-    background-color: hsl(var(--muted) / 0.4);
-    border-color: hsl(var(--foreground) / 0.2);
-    opacity: 0.9;
-  }
-
-  /* Philosophy Section Styles */
-  .philosophy-container {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .philosophy-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
-    transition: left 0.8s ease-in-out;
-  }
-
-  .philosophy-container:hover::before {
-    left: 100%;
-  }
-
-  /* Fade Animations */
-  .animate-fade-in {
-    animation: fadeIn 1.2s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-</style>
-
 <script define:vars={{ TOOLBOX_ITEMS, PROJECTS }}>
   document.addEventListener("DOMContentLoaded", () => {
-    // Toolbox functionality
     const selector = document.getElementById("toolbox-selector");
     const bannerContainer = document.getElementById("banner-container");
     const toolCategory = document.getElementById("tool-category");
@@ -488,7 +402,7 @@ const PROJECTS = [
         const toolData = TOOLBOX_ITEMS.find((t) => t.id === toolId);
         if (!toolData) return;
 
-        // Update text content
+        // Update content
         toolCategory.textContent = toolData.category;
         toolDescription.textContent = toolData.description;
         toolLink.href = toolData.link;
