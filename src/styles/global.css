@@ -117,16 +117,18 @@
   * {
     @apply border-border outline-ring/50;
   }
-  
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     min-height: 100vh;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }
 
@@ -178,11 +180,15 @@
   }
   25% {
     background-color: white;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(255, 255, 255, 0.3);
+    box-shadow:
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(255, 255, 255, 0.3);
   }
   75% {
     background-color: white;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 16px rgba(255, 255, 255, 0.3);
+    box-shadow:
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 0 16px rgba(255, 255, 255, 0.3);
   }
   100% {
     background-color: hsl(var(--muted-foreground));
@@ -239,8 +245,12 @@
 }
 
 @keyframes rotateBorder {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes scroll-smooth {
@@ -290,17 +300,17 @@
     transform: translateX(-50%);
     left: 8px;
   }
-  
+
   .timeline-dot {
     transform: translateX(-50%);
     left: 8px;
   }
-  
+
   .timeline-animated-line {
     transform: translateX(-50%);
     left: 8px;
   }
-  
+
   /* Mobile-specific animation with fine-tuned height */
   .project-line-grow-0 {
     animation: projectLineGrowShrinkMobile 8s ease-in-out infinite;
@@ -317,12 +327,12 @@
     transform: translateX(-50%);
     left: 0;
   }
-  
+
   .timeline-dot {
     transform: translateX(-50%);
     left: 0;
   }
-  
+
   .timeline-animated-line {
     transform: translateX(-50%);
     left: 0;
@@ -362,13 +372,18 @@
 }
 
 .philosophy-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.02), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.02),
+    transparent
+  );
   transition: left 0.8s ease-in-out;
 }
 
@@ -400,7 +415,12 @@
   left: 0;
   right: 0;
   height: 40px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
   border-radius: 0.5rem 0.5rem 0 0;
   pointer-events: none;
   z-index: 10;
