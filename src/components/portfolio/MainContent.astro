@@ -11,6 +11,7 @@ import {
 import { Github, Linkedin, Twitter, Quote } from "lucide-react";
 import NameBanner from "./NameBanner.astro";
 import ToolboxBanner from "./ToolboxBanner.astro";
+import DineshPdf from "../../assets/Dinesh.pdf";
 
 import project1Image from "../../assets/images/project-1.png";
 import project2Image from "../../assets/images/project-2.png";
@@ -144,11 +145,11 @@ const PROJECTS = [
           </a>
         </div>
         <a
-          href="/resume.pdf"
+          href={DineshPdf}
           target="_blank"
           rel="noopener noreferrer"
           class="group inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-        >
+        > 
           <span>View Resume</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
