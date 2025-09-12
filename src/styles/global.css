@@ -221,6 +221,30 @@
   }
 }
 
+/* Second line animation - from project 1 to project 2 */
+@keyframes projectLineGrowShrink2 {
+  0% {
+    height: 0;
+    top: 16px;
+  }
+  40% {
+    height: 195px;
+    top: 16px;
+  }
+  50% {
+    height: 195px;
+    top: 16px;
+  }
+  65% {
+    height: 0;
+    top: 211px;
+  }
+  100% {
+    height: 0;
+    top: 211px;
+  }
+}
+
 /* Mobile Animation - Fine-tuned to reach second dot perfectly */
 @keyframes projectLineGrowShrinkMobile {
   0% {
@@ -238,6 +262,30 @@
   65% {
     height: 0;
     top: 446px; /* Adjusted end position (16px + 430px) */
+  }
+  100% {
+    height: 0;
+    top: 446px;
+  }
+}
+
+/* Mobile Animation for second line */
+@keyframes projectLineGrowShrinkMobile2 {
+  0% {
+    height: 0;
+    top: 16px;
+  }
+  40% {
+    height: 430px;
+    top: 16px;
+  }
+  50% {
+    height: 430px;
+    top: 16px;
+  }
+  65% {
+    height: 0;
+    top: 446px;
   }
   100% {
     height: 0;
@@ -286,10 +334,23 @@
   animation-delay: 4s;
 }
 
+.project-dot-glow-2 {
+  animation: projectDotGlow 8s infinite;
+  animation-delay: 8s;
+}
+
 /* Desktop Timeline Animation */
 .project-line-grow-0 {
   animation: projectLineGrowShrink 8s ease-in-out infinite;
   animation-delay: 1.5s;
+  animation-fill-mode: both;
+  height: 0;
+  top: 16px;
+}
+
+.project-line-grow-1 {
+  animation: projectLineGrowShrink2 8s ease-in-out infinite;
+  animation-delay: 5.5s;
   animation-fill-mode: both;
   height: 0;
   top: 16px;
@@ -316,6 +377,14 @@
   .project-line-grow-0 {
     animation: projectLineGrowShrinkMobile 8s ease-in-out infinite;
     animation-delay: 1.5s;
+    animation-fill-mode: both;
+    height: 0;
+    top: 16px;
+  }
+
+  .project-line-grow-1 {
+    animation: projectLineGrowShrinkMobile2 8s ease-in-out infinite;
+    animation-delay: 5.5s;
     animation-fill-mode: both;
     height: 0;
     top: 16px;
