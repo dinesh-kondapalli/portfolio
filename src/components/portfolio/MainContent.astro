@@ -8,7 +8,8 @@ import {
   AstroIcon,
   BunIcon,
 } from "../icons/icons.tsx";
-import { Github, Linkedin, Twitter, Quote } from "lucide-react";
+import { Linkedin, Twitter, Quote } from "lucide-react";
+import { GithubLogo } from "@phosphor-icons/react";
 import NameBanner from "./NameBanner.astro";
 import ToolboxBanner from "./ToolboxBanner.astro";
 import DineshPdf from "../../assets/Dinesh.pdf";
@@ -141,7 +142,7 @@ const PROJECTS = [
             aria-label="GitHub profile"
             class="text-muted-foreground hover:text-foreground transition-colors"
           >
-            <Github class="w-6 h-6" />
+            <GithubLogo size={26} weight="regular" />
           </a>
           <a
             href="https://linkedin.com/in/kdinesh24"
@@ -335,7 +336,7 @@ const PROJECTS = [
                           aria-label={`View ${project.name} on GitHub`}
                           class="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
                         >
-                          <Github class="w-4 h-4" />
+                          <GithubLogo size={16} weight="regular" />
                           <span>GitHub</span>
                         </a>
                       </div>
